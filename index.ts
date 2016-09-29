@@ -25,6 +25,18 @@ let users: Array<User> = [
 ];
 
 console.log(users.slice(1,2));
-console.log(_.pluck(users, "FirstName"));
+
+function PrintUsers(attr: string):void{
+$("body").append("<dt>");
+_.pluck(users, attr).forEach(
+    function(item){
+        return $("body").append("<dd>" + item + "</dd>");
+    }
+)
+$("body").append("</dt>");
+}
+
+PrintUsers("FirstName");
+PrintUsers("LastName");
 
 
